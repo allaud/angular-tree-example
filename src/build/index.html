@@ -1,0 +1,35 @@
+<!doctype html>
+<html class="no-js" ng-app="ModelExample">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Meta:Chat</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body ng-controller="MainController">
+
+Title: {{ model.title }}
+
+Filter by name: <input ng-model="model.filter">
+
+<br>
+<strong>Total filtered: {{ model.total_visible_airlies }}</strong>
+<br>
+
+<div ng-repeat="airline in model.airlines.visible">
+    <strong>{{ airline.id }}: </strong> <span>{{ airline.name }}</span>
+</div>
+
+<hr>
+<h1>MODEL:</h1>
+<pre style="font-size:10px;">
+{{ model | pretty_json }}
+</pre>
+
+    </body>
+</html>
+
